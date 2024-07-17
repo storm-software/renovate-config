@@ -1,17 +1,14 @@
 {
-  "$schema": "./packages/config/schemas/storm.schema.json",
-  "extends": "./packages/config/presets/base.json",
-  "name": "storm-ops",
-  "namespace": "storm-software",
-  "repository": "https://github.com/storm-software/storm-ops",
+  "$schema": "https://cdn.jsdelivr.net/npm/@storm-software/config/schemas/storm.schema.json",
+  "name": "renovate-config",
+  "namespace": "renovate-config",
+  "repository": "https://github.com/storm-software/renovate-config",
   "organization": "storm-software",
   "ci": true,
-  "owner": "@storm-software/development",
+  "owner": "storm-software",
   "timezone": "America/New_York",
   "locale": "en-US",
-  "logLevel": "all",
-  "packageManager": "pnpm",
-  "externalPackagePatterns": ["@storm-software/"],
+  "logLevel": "debug",
   "colors": {
     "light": {
       "background": "#f4f4f5",
