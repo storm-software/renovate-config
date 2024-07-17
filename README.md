@@ -100,6 +100,7 @@ yarn add -D @storm-software/renovate-config
 </details>
 
 <br />
+<br />
 
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
@@ -117,8 +118,11 @@ yarn add -D @storm-software/renovate-config
 
 ## Local Preset
 
+The below JSON configuration can be used as the `renovate.json` file in Storm Software repositories:
+
 ```json
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>storm-software/renovate-config"]
 }
 ```
