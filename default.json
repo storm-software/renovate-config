@@ -1,0 +1,83 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base", "group:monorepos", ":semanticCommits"],
+  "timezone": "America/New_York",
+  "schedule": ["on sunday and wednesday at 12am"],
+  "ignorePaths": ["examples/**"],
+  "labels": ["dependencies"],
+  "rebaseWhen": "conflicted",
+  "rangeStrategy": "bump",
+  "commitMessagePrefix": "deps(monorepo):",
+  "commitMessageAction": "Upgrade",
+  "packageRules": [
+    {
+      "groupName": "Auto-merge Storm Software Dependencies",
+      "matchDatasources": ["npm"],
+      "matchPackagePatterns": [
+        "^@storm-software/",
+        "^@storm-stack/",
+        "^@cyclone-ui/",
+        "^@acidic/"
+      ],
+      "matchUpdateTypes": ["digest", "minor", "patch", "pin"],
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "groupName": "Auto-merge Nx Dependencies",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["nx", "^@nx/"],
+      "matchUpdateTypes": ["digest", "minor", "patch", "pin"],
+      "postUpgradeTasks": {
+        "commands": [
+          "pnpm nx migrate latest --run-migrations --create-commits --commit-message='deps(monorepo): Upgrade Nx packages to latest'"
+        ]
+      },
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "groupName": "Auto-merge Non-major/minor Dependencies",
+      "matchUpdateTypes": ["digest", "patch", "pin"],
+      "automerge": true,
+      "automergeType": "branch"
+    }
+
+    // {
+    //     "groupName": "Tamagui dependencies",
+    //     "matchDatasources": ["npm"],
+    //     "matchPackageNames": ["tamagui", "^@tamagui/"],
+    //     "automerge": false
+    //     },
+    //     {
+    //     "groupName": "Major dependencies",
+    //     "matchUpdateTypes": ["major"],
+    //     "automerge": false
+    //     },
+    // {
+    //   "groupName": "patch & minor dev dependencies",
+    //   "depTypeList": ["devDependencies"],
+    //   "updateTypes": ["digest", "minor", "patch", "pin"],
+    //   "automerge": true
+    // },
+    // {
+    //   "groupName": "patch dependencies",
+    //   "depTypeList": ["dependencies"],
+    //   "updateTypes": ["patch", "pin"],
+    //   "automerge": true
+    // }
+  ],
+  "ignoreDeps": [
+    "@types/node",
+    "@types/react",
+    "@types/react-dom",
+    "node",
+    "react",
+    "react-dom",
+    "typescript",
+    "next",
+    "storybook",
+    "tamagui",
+    "^@tamagui/"
+  ]
+}
