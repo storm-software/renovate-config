@@ -3,12 +3,13 @@
   "extends": ["config:base", "group:monorepos", ":semanticCommits"],
   "timezone": "America/New_York",
   "schedule": ["on sunday and wednesday at 12am"],
-  "ignorePaths": ["examples/**"],
+  "ignorePaths": ["examples/**", "node_modules/**", "dist/**", "tmp/**"],
   "labels": ["dependencies"],
   "rebaseWhen": "conflicted",
-  "rangeStrategy": "bump",
   "commitMessagePrefix": "deps(monorepo):",
   "commitMessageAction": "Upgrade",
+  "semanticCommitScope": "monorepo",
+  "semanticCommitType": "deps",
   "packageRules": [
     {
       "groupName": "Auto-merge Storm Software Dependencies",
@@ -19,7 +20,6 @@
         "^@cyclone-ui/",
         "^@acidic/"
       ],
-      "matchUpdateTypes": ["digest", "minor", "patch", "pin"],
       "automerge": true,
       "automergeType": "branch"
     },
@@ -27,7 +27,6 @@
       "groupName": "Auto-merge Nx Dependencies",
       "matchDatasources": ["npm"],
       "matchPackageNames": ["nx", "^@nx/"],
-      "matchUpdateTypes": ["digest", "minor", "patch", "pin"],
       "postUpgradeTasks": {
         "commands": [
           "pnpm nx migrate latest --run-migrations --create-commits --commit-message='deps(monorepo): Upgrade Nx packages to latest'"
@@ -37,10 +36,19 @@
       "automergeType": "branch"
     },
     {
-      "groupName": "Auto-merge Non-major/minor Dependencies",
-      "matchUpdateTypes": ["digest", "patch", "pin"],
+      "groupName": "Auto-merge Non-major Dependencies",
+      "matchUpdateTypes": ["digest", "minor", "patch", "pin"],
       "automerge": true,
       "automergeType": "branch"
+    },
+    {
+      "groupName": "Create PR for Major Dependencies",
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "automergeType": "pr",
+      "prCreation": "immediate",
+      "prTitle": "Upgrade monorepo's major dependencies",
+      "assignees": ["@sullivanpj", "@storm-software/operations"]
     }
 
     // {
