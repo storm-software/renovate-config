@@ -1,15 +1,20 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", "group:monorepos", ":semanticCommits"],
+  "extends": [
+    "config:base",
+    "group:allNonMajor",
+    ":semanticCommitTypeAll(deps)"
+  ],
   "timezone": "America/New_York",
-  "schedule": ["on sunday and wednesday at 12am"],
   "ignorePaths": ["examples/**", "node_modules/**", "dist/**", "tmp/**"],
   "labels": ["dependencies"],
+  "rangeStrategy": "bump",
   "rebaseWhen": "conflicted",
-  "commitMessagePrefix": "deps(monorepo):",
   "commitMessageAction": "Upgrade",
   "semanticCommitScope": "monorepo",
-  "semanticCommitType": "deps",
+  "npm": {
+    "commitMessageTopic": "{{prettyDepType}} {{depName}}"
+  },
   "packageRules": [
     {
       "groupName": "Auto-merge Storm Software Dependencies",
@@ -21,7 +26,8 @@
         "^@acidic/"
       ],
       "automerge": true,
-      "automergeType": "branch"
+      "automergeType": "branch",
+      "schedule": ["after 2am and before 3am"]
     },
     {
       "groupName": "Auto-merge Nx Dependencies",
@@ -33,13 +39,15 @@
         ]
       },
       "automerge": true,
-      "automergeType": "branch"
+      "automergeType": "branch",
+      "schedule": ["after 2am and before 3am"]
     },
     {
       "groupName": "Auto-merge Non-major Dependencies",
-      "matchUpdateTypes": ["digest", "minor", "patch", "pin"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
-      "automergeType": "branch"
+      "automergeType": "branch",
+      "schedule": ["after 2am and before 3am"]
     },
     {
       "groupName": "Create PR for Major Dependencies",
@@ -48,7 +56,8 @@
       "automergeType": "pr",
       "prCreation": "immediate",
       "prTitle": "Upgrade monorepo's major dependencies",
-      "assignees": ["@sullivanpj", "@storm-software/operations"]
+      "assignees": ["@sullivanpj", "@storm-software/operations"],
+      "schedule": ["on sunday at 12am"]
     }
 
     // {
