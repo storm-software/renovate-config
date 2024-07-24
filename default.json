@@ -10,7 +10,6 @@
   "labels": ["dependencies"],
   "rangeStrategy": "bump",
   "rebaseWhen": "conflicted",
-  "commitMessageAction": "Upgrade",
   "semanticCommitScope": "monorepo",
   "npm": {
     "commitMessageTopic": "{{prettyDepType}} {{depName}}"
@@ -88,6 +87,7 @@
     "@types/node",
     "@types/react",
     "@types/react-dom",
+    "tsup",
     "node",
     "react",
     "react-dom",
