@@ -3,7 +3,9 @@
   "extends": [
     "config:base",
     "group:allNonMajor",
-    ":semanticCommitTypeAll(deps)"
+    ":semanticCommitTypeAll(deps)",
+    ":automergeBranchPush",
+    ":automergeRequireAllStatusChecks"
   ],
   "timezone": "America/New_York",
   "ignorePaths": ["examples/**", "node_modules/**", "dist/**", "tmp/**"],
