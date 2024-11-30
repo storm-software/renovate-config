@@ -3,7 +3,8 @@
   "extends": [
     "config:base",
     "group:allNonMajor",
-    ":semanticCommitTypeAll(deps)",
+    ":semanticCommitTypeAll(chore)",
+    ":semanticCommitScopeAll(monorepo)",
     ":automergeBranchPush",
     ":automergeRequireAllStatusChecks"
   ],
@@ -51,7 +52,7 @@
       "matchPackageNames": ["nx", "^@nx/"],
       "postUpgradeTasks": {
         "commands": [
-          "pnpm nx migrate latest --run-migrations --create-commits --commit-message='deps(monorepo): Upgrade Nx packages to latest'"
+          "pnpm nx migrate latest --run-migrations --create-commits --commit-message='chore(monorepo): Upgrade Nx packages to latest'"
         ]
       },
       "automerge": true,
@@ -182,6 +183,7 @@
     "tsup",
     "react",
     "react-dom",
+    "react-native",
     "typescript",
     "next",
     "storybook",
