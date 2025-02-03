@@ -3,8 +3,8 @@
   "extends": [
     "config:base",
     "group:allNonMajor",
-    ":semanticCommitTypeAll(deps)",
-    ":semanticCommitScopeAll(monorepo)",
+    ":semanticCommitTypeAll(chore)",
+    ":semanticCommitScope(monorepo)",
     ":automergeBranchPush",
     ":automergeRequireAllStatusChecks"
   ],
