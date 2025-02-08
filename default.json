@@ -38,6 +38,7 @@
       "matchDatasources": ["npm"],
       "matchPackagePatterns": [
         "^@storm-software/",
+        "^@stryke/",
         "^@storm-stack/",
         "^@cyclone-ui/",
         "^@acidic/"
@@ -50,11 +51,6 @@
       "groupName": "Auto-merge Nx Dependencies",
       "matchDatasources": ["npm"],
       "matchPackageNames": ["nx", "^@nx/"],
-      "postUpgradeTasks": {
-        "commands": [
-          "pnpm nx migrate latest --run-migrations --create-commits --commit-message='deps(monorepo): Upgrade Nx packages to latest'"
-        ]
-      },
       "automerge": true,
       "automergeType": "branch",
       "schedule": ["after 2am and before 3am"]
