@@ -9,7 +9,7 @@
     ":automergeRequireAllStatusChecks"
   ],
   "timezone": "America/New_York",
-  "ignorePaths": ["examples/**", "node_modules/**", "dist/**", "tmp/**"],
+  "ignorePaths": ["examples/**", "node_modules/**", "dist/**", "tmp/**", ".storm/**"],
   "labels": ["dependencies"],
   "rangeStrategy": "bump",
   "rebaseWhen": "conflicted",
@@ -43,14 +43,6 @@
         "^@cyclone-ui/",
         "^@acidic/"
       ],
-      "automerge": true,
-      "automergeType": "branch",
-      "schedule": ["after 2am and before 3am"]
-    },
-    {
-      "groupName": "Auto-merge Nx Dependencies",
-      "matchDatasources": ["npm"],
-      "matchPackageNames": ["nx", "^@nx/"],
       "automerge": true,
       "automergeType": "branch",
       "schedule": ["after 2am and before 3am"]
@@ -184,6 +176,8 @@
     "next",
     "storybook",
     "tamagui",
-    "^@tamagui/"
+    "^@tamagui/",
+    "nx",
+    "^@nx/"
   ]
 }
