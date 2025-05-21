@@ -178,6 +178,7 @@
     "tamagui",
     "^@tamagui/",
     "nx",
-    "^@nx/"
+    "^@nx/",
+    "^@deepkit/"
   ]
 }
