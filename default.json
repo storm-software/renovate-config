@@ -179,6 +179,10 @@
     "^@tamagui/",
     "nx",
     "^@nx/",
-    "^@deepkit/"
+   "@deepkit/type-spec",
+    "@deepkit/type-compiler",
+    "@deepkit/type",
+    "@deepkit/core",
+    "@deepkit/bson"
   ]
 }
