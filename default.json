@@ -9,7 +9,13 @@
     ":automergeRequireAllStatusChecks"
   ],
   "timezone": "America/New_York",
-  "ignorePaths": ["examples/**", "node_modules/**", "dist/**", "tmp/**", ".storm/**"],
+  "ignorePaths": [
+    "examples/**",
+    "node_modules/**",
+    "dist/**",
+    "tmp/**",
+    ".storm/**"
+  ],
   "labels": ["dependencies"],
   "rangeStrategy": "bump",
   "rebaseWhen": "conflicted",
@@ -179,7 +185,7 @@
     "^@tamagui/",
     "nx",
     "^@nx/",
-   "@deepkit/type-spec",
+    "@deepkit/type-spec",
     "@deepkit/type-compiler",
     "@deepkit/type",
     "@deepkit/core",

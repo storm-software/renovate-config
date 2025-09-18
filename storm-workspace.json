@@ -1,6 +1,7 @@
 {
   "$schema": "https://public.storm-cdn.com/schemas/storm-workspace.schema.json",
   "extends": "@storm-software/config/presets/storm-software.json",
+  "variant": "minimal",
   "name": "renovate-config",
   "namespace": "renovate-config",
   "repository": "https://github.com/storm-software/renovate-config",
