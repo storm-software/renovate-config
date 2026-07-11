@@ -14,7 +14,11 @@
     "node_modules/**",
     "dist/**",
     "tmp/**",
-    ".storm/**"
+    ".storm/**",
+    ".nx/**",
+    ".turbo/**",
+    ".direnv/**",
+    ".devenv/**"
   ],
   "labels": ["dependencies"],
   "rangeStrategy": "bump",
@@ -47,7 +51,11 @@
         "^@stryke/",
         "^@storm-stack/",
         "^@cyclone-ui/",
-        "^@acidic/"
+        "^@acidic/",
+        "^@powerlines/",
+        "^@power-plant/",
+        "^@shell-shock/",
+        "^@telepathic/"
       ],
       "automerge": true,
       "automergeType": "branch",
@@ -67,7 +75,7 @@
       "automergeType": "pr",
       "prCreation": "immediate",
       "prTitle": "Upgrade monorepo's major dependencies",
-      "assignees": ["@sullivanpj", "@storm-software/operations"],
+      "assignees": ["@sullivanpj", "@storm-software/admin"],
       "schedule": ["on sunday at 12am"]
     },
     {
@@ -77,7 +85,7 @@
       "automergeType": "pr",
       "prCreation": "immediate",
       "prTitle": "Upgrade monorepo's major dependencies",
-      "assignees": ["@sullivanpj", "@storm-software/operations"],
+      "assignees": ["@sullivanpj", "@storm-software/admin"],
       "schedule": ["on sunday at 12am"]
     },
 
@@ -135,7 +143,7 @@
     // of the same concern, we cannot update our `opentelemetry` packages since
     // those are tightly intertwined.  This exception puts those packages into
     // their own group and away from other dep updates until the time that
-    // those problems are no longer.  For more details, see the explainations
+    // those problems are no longer.  For more details, see the explanations
     // in the `/apollo-router/Cargo.toml` file around the declarations for
     // `^opentelemetry` and `^tracing` packages.
     {
@@ -146,35 +154,10 @@
       "dependencyDashboardApproval": true,
       "schedule": ["after 2am and before 3am"]
     }
-
-    // {
-    //     "groupName": "Tamagui dependencies",
-    //     "matchDatasources": ["npm"],
-    //     "matchPackageNames": ["tamagui", "^@tamagui/"],
-    //     "automerge": false
-    //     },
-    //     {
-    //     "groupName": "Major dependencies",
-    //     "matchUpdateTypes": ["major"],
-    //     "automerge": false
-    //     },
-    // {
-    //   "groupName": "patch & minor dev dependencies",
-    //   "depTypeList": ["devDependencies"],
-    //   "updateTypes": ["digest", "minor", "patch", "pin"],
-    //   "automerge": true
-    // },
-    // {
-    //   "groupName": "patch dependencies",
-    //   "depTypeList": ["dependencies"],
-    //   "updateTypes": ["patch", "pin"],
-    //   "automerge": true
-    // }
   ],
   "ignoreDeps": [
     "@types/react",
     "@types/react-dom",
-    "tsup",
     "react",
     "react-dom",
     "react-native",
@@ -185,10 +168,6 @@
     "^@tamagui/",
     "nx",
     "^@nx/",
-    "@deepkit/type-spec",
-    "@deepkit/type-compiler",
-    "@deepkit/type",
-    "@deepkit/core",
-    "@deepkit/bson"
+    "^@deepkit/"
   ]
 }

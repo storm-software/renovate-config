@@ -37,7 +37,7 @@
   ],
   "scripts": {
     "commit": "pnpm exec storm-git commit",
-    "push": "git push origin main:main",
+    "push": "git push main main",
     "view-config": "pnpm exec storm-config"
   },
   "devDependencies": {
